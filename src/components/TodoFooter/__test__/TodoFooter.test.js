@@ -10,65 +10,58 @@ const MockTodoFooter = ({ numberOfIncompleteTasks }) => {
   );
 };
 
-test("Should render the correct amount of incomplete tasks", () => {
-  // Render component in virtual DOM
-  render(<MockTodoFooter numberOfIncompleteTasks={5} />);
+describe("TodoFooter", () => {
+  test("Should render the correct amount of incomplete tasks", () => {
+    // Render component in virtual DOM
+    render(<MockTodoFooter numberOfIncompleteTasks={5} />);
 
-  // Find elements we want to interact with
-  const paragraphElement = screen.getByText(/5 tasks left/i);
-  expect(paragraphElement).toBeInTheDocument();
+    // Find elements we want to interact with
+    const paragraphElement = screen.getByText(/5 tasks left/i);
+    expect(paragraphElement).toBeInTheDocument();
+  });
+
+  test("Should be visible to the user", () => {
+    // Render component in virtual DOM
+    render(<MockTodoFooter numberOfIncompleteTasks={1} />);
+
+    // Find elements we want to interact with
+    const paragraphElement = screen.getByText(/1 task left/i);
+    expect(paragraphElement).toBeVisible();
+  });
 });
 
-test("Should render 'task' when the number of incomplete tasks is one", () => {
-  // Render component in virtual DOM
-  render(<MockTodoFooter numberOfIncompleteTasks={1} />);
+// test("Should render 'task' when the number of incomplete tasks is one", () => {
+//   // Render component in virtual DOM
+//   render(<MockTodoFooter numberOfIncompleteTasks={1} />);
 
-  // Find elements we want to interact with
-  const paragraphElement = screen.getByText(/1 task left/i);
-  expect(paragraphElement).toBeInTheDocument();
-});
+//   // Find elements we want to interact with
+//   const paragraphElement = screen.getByText(/1 task left/i);
+//   expect(paragraphElement).toBeTruthy();
+// });
 
-test("Number of incomplete tasks should be visible to the user", () => {
-  // Render component in virtual DOM
-  render(<MockTodoFooter numberOfIncompleteTasks={1} />);
+// test("Should contain the element p", () => {
+//   // Render component in virtual DOM
+//   render(<MockTodoFooter numberOfIncompleteTasks={1} />);
 
-  // Find elements we want to interact with
-  const paragraphElement = screen.getByText(/1 task left/i);
-  expect(paragraphElement).toBeVisible();
-});
+//   // Find elements we want to interact with
+//   const paragraphElement = screen.getByText(/1 task left/i);
+//   expect(paragraphElement).toContainHTML("p");
+// });
 
-test("Should render 'task' when the number of incomplete tasks is one (1)", () => {
-  // Render component in virtual DOM
-  render(<MockTodoFooter numberOfIncompleteTasks={1} />);
+// test("Should render 'task' when the number of incomplete tasks is one (2)", () => {
+//   // Render component in virtual DOM
+//   render(<MockTodoFooter numberOfIncompleteTasks={1} />);
 
-  // Find elements we want to interact with
-  const paragraphElement = screen.getByText(/1 task left/i);
-  expect(paragraphElement).toBeTruthy();
-});
+//   // Find elements we want to interact with
+//   const paragraphElement = screen.getByTestId("paragraph");
+//   expect(paragraphElement).toHaveTextContent("1 task left");
+// });
 
-test("Should contain the element p", () => {
-  // Render component in virtual DOM
-  render(<MockTodoFooter numberOfIncompleteTasks={1} />);
+// test("Should render 'task' when the number of incomplete tasks is one (3)", () => {
+//   // Render component in virtual DOM
+//   render(<MockTodoFooter numberOfIncompleteTasks={1} />);
 
-  // Find elements we want to interact with
-  const paragraphElement = screen.getByText(/1 task left/i);
-  expect(paragraphElement).toContainHTML("p");
-});
-
-test("Should render 'task' when the number of incomplete tasks is one (2)", () => {
-  // Render component in virtual DOM
-  render(<MockTodoFooter numberOfIncompleteTasks={1} />);
-
-  // Find elements we want to interact with
-  const paragraphElement = screen.getByTestId("paragraph");
-  expect(paragraphElement).toHaveTextContent("1 task left");
-});
-
-test("Should render 'task' when the number of incomplete tasks is one (3)", () => {
-  // Render component in virtual DOM
-  render(<MockTodoFooter numberOfIncompleteTasks={1} />);
-
-  // Find elements we want to interact with
-  const paragraphElement = screen.getByTestId("paragraph");
-  expect(paragraphElement.textContent).toBe("1 task left");
-});
+//   // Find elements we want to interact with
+//   const paragraphElement = screen.getByTestId("paragraph");
+//   expect(paragraphElement.textContent).toBe("1 task left");
+// });
