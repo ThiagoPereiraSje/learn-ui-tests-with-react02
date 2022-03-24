@@ -28,11 +28,11 @@ describe("AddInput", () => {
 
     // Interact with those elements
     fireEvent.change(inputElement, {
-      target: { value: "Go Grocery Shopping" },
+      target: { value: "My new task" },
     });
 
     // Assert that the results are as expected
-    expect(inputElement.value).toBe("Go Grocery Shopping");
+    expect(inputElement.value).toBe("My new task");
   });
 
   test("Should have empty input text when add button is clicked", () => {
@@ -45,7 +45,7 @@ describe("AddInput", () => {
 
     // Interact with those elements
     fireEvent.change(inputElement, {
-      target: { value: "Go Grocery Shopping" },
+      target: { value: "My new task" },
     });
 
     fireEvent.click(buttonElement);
